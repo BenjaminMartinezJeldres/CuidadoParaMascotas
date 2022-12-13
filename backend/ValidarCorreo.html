@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+</head>
+<body>
+
+<script>
+   // Expresión regular para validar correos
+let emails = [
+    'esto.es_un.mail+complejo@mail.com',
+    '@holamundo.com',
+    'juanvtr@yahoo.com.ms',
+    'tuchiquikobnKreizi@hola.c',
+    'alohamundo@gmail.com',
+    'n@hotmail.com'
+];
+
+let validEmail= /[\w\.\_]{5,30}\+[\w]{0,10}@[\w]{3,}\.\2{2,5}/;
+
+
+
+
+
+emails.forEach( item => {
+    if ( validEmail.test(item) ) {
+        console.log(`El correo :  ${ item } es válido  `);
+    } else {
+    console.error(`El correo : ${ item } no es válido `);
+    }
+});
+
+</script>
+
+</body>
+</html>
