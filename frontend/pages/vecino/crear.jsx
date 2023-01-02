@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { Button, Container, Heading, HStack, Stack, Text } from '@chakra-ui/react'
-import { createPet } from '../../data/pets'
+import { createVecino } from '../../data/vecinos'
 import InputForm from '../../components/InputForm'
 import TextareaInput from '../../components/TextareaInput'
 import { useRouter } from 'next/router'
 import { Formik } from 'formik'
-import petValidation from '../../validations/petValidation'
+import vecinoValidation from '../../validations/vecinoValidation'
 import axios from 'axios'
 
-const mascotas = () => {
+const neighbour = () => {
 
-    const [pet, setPet] = useState({
+    const [vecino, setVecino] = useState({
         name: '',
         price: 0,
         description: ''
@@ -20,13 +20,13 @@ const mascotas = () => {
 
     return (
         <Container maxW="container.xl" mt={10}>
-            <Heading as={"h1"} size={"2xl"} textAlign={"center"}>Registrar Mascota</Heading>
+            <Heading as={"h1"} size={"2xl"} textAlign={"center"}>Crear Vecino</Heading>
             <Formik
-                initialValues={pet}
-                validationSchema={petValidation}
+                initialValues={vecino}
+                validationSchema={vecinoValidation}
                 onSubmit={(values) => {
-                    createPet(values).then(res => {
-                        router.push("./mascotas")
+                    createVecino(values).then(res => {
+                        router.push("/neighbour")
                     })
                 }}
             >
@@ -40,28 +40,28 @@ const mascotas = () => {
                 }) => (
                     <form onSubmit={handleSubmit} id="form">
                         <Stack spacing={4} mt={10}>
-                            <InputForm label="Nombre" handleChange={handleChange} name="name" placeholder="Nombre de la mascota" type="text" value={values.name} handleBlur={handleBlur} />
+                            <InputForm label="Nombre" handleChange={handleChange} name="name" placeholder="Nombre del vecino" type="text" value={values.name} handleBlur={handleBlur} />
                             {touched.name && errors.name && (
                                 <Text color={"red"}>{errors.name}</Text>
                             )}
 
                             <HStack>
-                                <InputForm label="Raza" handleChange={handleChange} race="race" placeholder="Raza de la mascota" type="text" value={values.race} handleBlur={handleBlur} />
-                            {touched.race && errors.race && (
-                                <Text color={"red"}>{errors.race}</Text>
+                                <InputForm label="Apellido" handleChange={handleChange} lastname="lastname" placeholder="Apellido del Vecino" type="text" value={values.lastname} handleBlur={handleBlur} />
+                            {touched.lastname && errors.lastname && (
+                                <Text color={"red"}>{errors.lastname}</Text>
                             )}
                             </HStack>
 
 
                             <HStack>
-                                <InputForm label="Especie" handleChange={handleChange} species="species" placeholder="Raza de la mascota" type="text" value={values.species} handleBlur={handleBlur} />
+                                <InputForm label="Correo" handleChange={handleChange} species="species" placeholder="Raza de la mascota" type="text" value={values.species} handleBlur={handleBlur} />
                                 {touched.species && errors.species && (
                                 <Text color={"red"}>{errors.species}</Text>
                             )}
                             </HStack>
 
                             <HStack>
-                                <InputForm label="Peso" handleChange={handleChange} name="weight" placeholder="Peso de la mascota" type="number" value={values.weight} handleBlur={handleBlur} />
+                                <InputForm label="Telefono" handleChange={handleChange} name="weight" placeholder="Peso de la mascota" type="number" value={values.weight} handleBlur={handleBlur} />
                             </HStack>
                             <HStack justify={"space-between"}>
                                 {touched.weight && errors.weight && (
@@ -77,23 +77,22 @@ const mascotas = () => {
                             </HStack>
 
                                     <HStack>
-                                    <InputForm label="Dueño" handleChange={handleChange} owner="owner" placeholder="Dueño de la mascota" type="text" value={values.owner} handleBlur={handleBlur} />
+                                    <InputForm label="Edad" handleChange={handleChange} owner="owner" placeholder="Dueño de la mascota" type="text" value={values.owner} handleBlur={handleBlur} />
                                 {touched.owner && errors.owner && (
                                 <Text color={"red"}>{errors.owner}</Text>
                                 )}
                             </HStack>
 
                             <HStack>
-                                    <InputForm label="TipoServicio" handleChange={handleChange} TipoServicio="TipoServicio" placeholder="Tipo de Servicio para la mascota" type="text" value={values.TipoServicio} handleBlur={handleBlur} />
+                                    <InputForm label="Residencia" handleChange={handleChange} TipoServicio="TipoServicio" placeholder="Tipo de Servicio para la mascota" type="text" value={values.TipoServicio} handleBlur={handleBlur} />
                                 {touched.TipoServicio && errors.TipoServicio && (
                                 <Text color={"red"}>{errors.TipoServicio}</Text>
                                 )}
                             </HStack>
-
                         </Stack>
                         <HStack>
                             <Button colorScheme="blue" mt={10} mb={10} type={"submit"} >Crear</Button>
-                            <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('../menu')}>Cancelar</Button>
+                            <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('/')}>Cancelar</Button>
                         </HStack>
                     </form>
                 )}
@@ -102,4 +101,4 @@ const mascotas = () => {
     )
 }
 
-export default mascotas
+export default neighbour

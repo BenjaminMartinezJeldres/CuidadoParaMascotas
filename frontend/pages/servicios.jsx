@@ -45,7 +45,7 @@ const servicios = () => {
     return (
         <>
             <Container maxW="container.xl">
-                <Button colorScheme="blue" mt="10" mb="10" onClick={() => router.push('./')}>  volver</Button>
+                <Button colorScheme="red" mt="10" mb="10" onClick={() => router.push('./menu')}>  volver</Button>
                 
                 <Heading  as="h1" size="2xl" textAlign="center" mt="10"> Listado de servicios </Heading>
 

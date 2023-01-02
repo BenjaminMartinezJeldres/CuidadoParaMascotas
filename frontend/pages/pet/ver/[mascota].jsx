@@ -8,40 +8,28 @@ import axios from 'axios'
 
 
 export const getServerSideProps = async (context) => {
-    try {
-        const response = await getPet(context.query.mascota, localStorage.getItem('token'))
+        const response = await getPet(context.query.mascota)
         if (response.status === 200) {
             return {
                 props: {
                     data: response.data
-                }
-            }
-        } else {
-            return {
-                redirect: {
-                    destination: "/",
-                }
-            }
-        }
-    } catch (error) {
-        return {
-            redirect: {
-                destination: "/",
             }
         }
     }
-
 }
+
 
 const editar = ({ data }) => {
     const [pet] = useState(data)
+    const router = useRouter()
 
 
     return (
         <Container maxW="container.xl" mt={10}>
             <Heading as={"h1"} size={"2xl"} textAlign={"center"}>Mascota: {pet.name}</Heading>
-            <Stack my={10}>
-                <ShowInfo value={pet.name} color={"green.300"} tag={"Nombre"} />
+
+                <Stack my={10}>
+                <ShowInfo value={pet.name} color={"darkgreen"} tag={"Nombre"} />
                 <ShowInfo value={pet.race} color={"blue.300"} tag={"Raza"} />
                 <ShowInfo value={pet.species} color={"blue.300"} tag={"Especie"} />
                 <ShowInfo value={pet.weight} color={"blue.300"} tag={"Peso"} />
@@ -53,9 +41,9 @@ const editar = ({ data }) => {
                 </HStack>
             </Stack>
             <HStack >
-                <Button w={"full"} colorScheme="blue" mt={10} mb={10}>Editar</Button>
+                <Button w={"full"} colorScheme="green" mt={10} mb={10}>Subir Archivo</Button>
                 <Button w={"full"} colorScheme="red" mt={10} mb={10}>Eliminar</Button>
-                <Button w={"full"} colorScheme="green" mt={10} mb={10} onClick={() => router.push("/")}>Volver</Button>
+                <Button w={"full"} colorScheme="green" mt={10} mb={10} onClick={() => router.push("/mascotas")}>Volver</Button>
             </HStack>
         </Container>
     )

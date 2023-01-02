@@ -53,7 +53,7 @@ const mascotas = () => {
     return (
         <>
             <Container maxW="container.xl">
-                <Button colorScheme="blue"mt="10" mb="10" onClick={() => router.push('./')}>volver</Button>
+                <Button colorScheme="red"mt="10" mb="10" onClick={() => router.push('./menu')}>volver</Button>
                 <Heading as="h1" size="2xl" textAlign="center" mt="10"> Listado de mascotas </Heading>
                 <Button colorScheme="blue" mt="10" mb="10" onClick={() => router.push('/pet/crear')}>Agregar mascota</Button>
                 <Stack spacing={4} mt="10">

@@ -21,21 +21,21 @@ const neighbour = () => {
     const router = useRouter()
 
     const contentTable = () => {
-        return vecinos.map(vecinos => {
+        return vecinos.map(vecino => {
             return (
-                <Tr key={vecinos._id}>
-                    <Td>{vecinos.name}</Td>
-                    <Td>{vecinos.lastname}</Td>
-                    <Td>{vecinos.correo}</Td>
-                    <Td>{vecinos.telefono}</Td>
-                    <Td>{vecinos.genero}</Td>
-                    <Td>{vecinos.edad}</Td>
-                    <Td>{vecinos.residencia}</Td>
-                    <Td>{vecinos.category}</Td>
+                <Tr key={vecino._id}>
+                    <Td>{vecino.name}</Td>
+                    <Td>{vecino.lastname}</Td>
+                    <Td>{vecino.correo}</Td>
+                    <Td>{vecino.telefono}</Td>
+                    <Td>{vecino.genero}</Td>
+                    <Td>{vecino.edad}</Td>
+                    <Td>{vecino.residencia}</Td>
+                    <Td>{vecino.category}</Td>
                     <Td>
                         <HStack>
-                            <Button colorScheme={"orange"} onClick={() => router.push(`./vecinos/ver/${vecinos._id}`)}>Ver</Button>
-                            <Button colorScheme={"teal"} onClick={() => router.push(`./vecinos/actualizar/${vecinos._id}`)}>Editar</Button>
+                            <Button colorScheme={"orange"} onClick={() => router.push(`./vecino/ver/${vecino._id}`)}>Ver</Button>
+                            <Button colorScheme={"teal"} onClick={() => router.push(`./vecino/actualizar/${vecino._id}`)}>Editar</Button>
                         </HStack>
                     </Td>
                 </Tr>
@@ -53,15 +53,15 @@ const neighbour = () => {
     return (
         <>
             <Container maxW="container.xl">
-                <Button colorScheme="blue"mt="10" mb="10" onClick={() => router.push('./')}>volver</Button>
+                <Button colorScheme="red"mt="10" mb="10" onClick={() => router.push('./menu')}>volver</Button>
                 <Heading as="h1" size="2xl" textAlign="center" mt="10"> Listado de vecinos </Heading>
-                <Button colorScheme="blue" mt="10" mb="10" onClick={() => router.push('/vecinos/crear')}>Agregar vecino</Button>
+                <Button colorScheme="blue" mt="10" mb="10" onClick={() => router.push('/vecino/crear')}>Agregar vecino</Button>
                 <Stack spacing={4} mt="10">
                 <Table variant='striped' colorScheme='blue'>
                         <Thead>
                             <Tr>
                                 <Td>Nombre</Td>
-                                <Td>lastname</Td>
+                                <Td>Apellido</Td>
                                 <Td>correo</Td>
                                 <Td>telefono</Td>
                                 <Td>genero</Td>

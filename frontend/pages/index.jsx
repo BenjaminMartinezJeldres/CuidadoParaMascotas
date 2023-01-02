@@ -17,64 +17,74 @@ import { Text } from '@chakra-ui/react'
 import { Box } from "@chakra-ui/react"
 import { extendTheme } from '@chakra-ui/react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { login } from '../data/user'
+
 
 
 
 const index = () => {
 
-const router = useRouter()
+	const [rut, setRUT] = useState('')
+	const router = useRouter()
 
-return(
-	<>
+	const handleChange = (e) => {
+		setRUT(e.target.value)
+	}
 
+	const onSubmit = async (e) => {
+		e.preventDefault()
+		const response = await login(rut)
+		if (response.status === 200) {
+			localStorage.setItem('token', rut)
+			router.push('./neighbour')
+			elsif (<Input
+    isInvalid
+    errorBorderColor='red.300'
+    placeholder='Here is a sample placeholder'/>)
+		}
+	}
 
-		<Container maxW="container.md">
+	return (
+		<>
+		<Container maxW="container.xl" centerContent>
+			<Stack direction='row'>
+			<Image
+  				borderRadius='full'
+ 				boxSize='100px'
+ 	 			objectFit='cover'
+				mt="10"
+  				src='https://static.vecteezy.com/system/resources/previews/006/470/722/original/pet-shop-logo-design-template-modern-animal-icon-label-for-store-veterinary-clinic-hospital-shelter-business-services-flat-illustration-background-with-dog-cat-and-horse-free-vector.jpg'
+   				alt='Dan Abramov'
 
-<Stack direction='row'>
-				<Image
-    				borderRadius='full'
-  					boxSize='100px'
-    				objectFit='cover'
-					mt="0"
-    				src='https://static.vecteezy.com/system/resources/previews/006/470/722/original/pet-shop-logo-design-template-modern-animal-icon-label-for-store-veterinary-clinic-hospital-shelter-business-services-flat-illustration-background-with-dog-cat-and-horse-free-vector.jpg'
-    				alt='Dan Abramov'
-					
 
 				/>
-					<Heading  fontSize='50px' as="h1" size="2xl" > Cuidados para mascotas del condominio </Heading>
+				<link rel="stylesheet" href="./styles/globals"></link>
+				<Heading as="h1" size="2xl" textAlign="center" pt ="20"   mx="20"mt="0">Cuidados para mascotas del condominio</Heading>
+
 </Stack>
 
 
-		
-		<Breadcrumb>
+				<Stack my={5} pt="20">
+					<FormControl>
 
-		<Breadcrumb fontWeight='medium' fontSize='sm'></Breadcrumb>
+						<FormLabel>Rut del usuario: </FormLabel>
+						<Input borderColor={"green"} px="10" onChange={handleChange} />
+					</FormControl>
 
-<BreadcrumbItem>
+					<Button colorScheme="green" textAlign="center" mt="10" mb="10" onClick={(onSubmit) => router.push('./menu')}>Ingresar</Button>
 
-	<Button colorScheme="green" textAlign="center" mt="10" mb="10" onClick={() => router.push('./servicios')}>Servicios</Button>
-</BreadcrumbItem>
-
-<BreadcrumbItem>
-    <Button colorScheme="green" textAlign="center" mt="10" mb="10" onClick={() => router.push('./mascotas')}>Mascotas</Button>
-</BreadcrumbItem>
-
-<BreadcrumbItem isCurrentPage>
-    <Button colorScheme="green" textAlign="center" mt="10" mb="10" onClick={() => router.push('./categorias')}>Categorias</Button>
-</BreadcrumbItem>
-
-<BreadcrumbItem>
-    <Button colorScheme="green" textAlign="center" mt="10" mb="10" onClick={() => router.push('./neighbour')}>Vecinos</Button>
-</BreadcrumbItem>
-
-</Breadcrumb>
+				</Stack>
+				<Stack>
 
 
-		</Container>
-	</>
+
+
+
+				</Stack>
+			</Container>
+		</>
+
 	)
 }
-
-
 
 export default index

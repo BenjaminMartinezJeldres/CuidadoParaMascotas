@@ -9,7 +9,7 @@ const createPet = (pet) => {
     const response = axios.post(`${process.env.SERVIDOR}/pet`, {
         name: pet.name,
         race: pet.race,
-        species: pet.especies,
+        species: pet.species,
         weight: pet.weight,
         gender: pet.gender,
         owner: pet.owner
