@@ -10,7 +10,8 @@ const serviceRoutes = require('./routes/serviceRoutes');
 const vecinoRoutes = require('./routes/petRoutes');
 const petRoutes = require('./routes/vecinoRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
-const mailerRoutes = require('./routes/mailerRoutes')
+const mailerRoutes = require('./routes/mailerRoutes');
+//const checkRUT = require('./middlewares/checkRUT');
 
 app.use(cors())
 app.use(express.json());
@@ -20,6 +21,7 @@ app.use('/api', vecinoRoutes);
 app.use('/api', petRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api', mailerRoutes);
+//app.use('/login',checkRUT);
 app.listen(process.env.PORT, () => {
     console.log('El proyecto esta corriendo en el puerto -> ', process.env.PORT);
 })

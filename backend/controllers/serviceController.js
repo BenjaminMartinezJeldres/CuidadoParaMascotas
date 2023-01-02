@@ -63,11 +63,15 @@ const deleteService = (req, res) => {
     })
 }
 
+//const login=(req,res)=>{
+  //  return res.status(200).send({message:"Se ha logeado correctamente"})
 
+//}
 module.exports = {
     createService,
     getServices,
     getSpecificService,
     updateService,
-    deleteService
+    deleteService,
+    //login
 }
