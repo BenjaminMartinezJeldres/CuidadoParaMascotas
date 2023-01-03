@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Button, Container, Heading, HStack, Input, Stack, Table, Thead, Tr, Td, Th, Tbody, FormControl, FormLabel } from '@chakra-ui/react'
 import { getServices } from '../data/services'
 //import { getCategories } from '../data/categories'
-import { useRouter } from 'next/router'
+import router from 'next/router'
 //import { login } from '../data/user'
 import axios from 'axios'
 import reac,{fragment} from 'react'
@@ -21,10 +21,8 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 
 
 
-
 const menu=() =>{
 
-    const router = useRouter()
 return(
 	<>
 

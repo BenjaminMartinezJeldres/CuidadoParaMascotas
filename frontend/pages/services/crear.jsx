@@ -1,21 +1,20 @@
-import { useState } from 'react'
+import { useState as state} from 'react'
 import { Button, Container, Heading, HStack, Stack, Text } from '@chakra-ui/react'
 import { createService } from '../../data/services'
 import InputForm from '../../components/InputForm'
 import TextareaInput from '../../components/TextareaInput'
-import { useRouter } from 'next/router'
+import router from 'next/router'
 import { Formik } from 'formik'
 import serviceValidation from '../../validations/serviceValidation'
 import axios from 'axios'
 
 const servicios = () => {
 
-    const [service, setService] = useState({
+    const [service, setService] = state ({
         name: '',
         price: 0,
         description: ''
     })
-    const router = useRouter()
 
 
     return (

@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState as state} from 'react'
 import { getVecino } from '../../../data/vecinos'
 import { Button, Container, Heading, HStack, Stack, Text } from '@chakra-ui/react'
-import { useRouter } from 'next/router'
+import router from 'next/router'
 import ShowInfo from '../../../components/ShowInfo'
 import axios from 'axios'
 
@@ -20,8 +20,8 @@ export const getServerSideProps = async (context) => {
 
 
 const editar = ({ data }) => {
-    const [vecino] = useState(data)
-    const router = useRouter()
+    const [vecino] = state(data)
+
 
     return (
         <Container maxW="container.xl" mt={10}>
@@ -35,7 +35,6 @@ const editar = ({ data }) => {
                 <ShowInfo value={vecino.genero} color={"blue.300"} tag={"Genero"} />
                 <ShowInfo value={vecino.edad} color={"blue.300"} tag={"Edad"} />
                 <ShowInfo value={vecino.residencia} color={"blue.300"} tag={"Residencia"} />
-                
         </Stack>
 
 

@@ -1,21 +1,21 @@
-import { useState, useEffect } from 'react'
+import { useState as state, useEffect as efect } from 'react'
 import { Button, Container, Heading, HStack, Input, Stack, Table, Thead, Tr, Td, Th, Tbody } from '@chakra-ui/react'
 import { getServices } from '../data/services'
-import { useRouter } from 'next/router'
+import router from 'next/router'
 import axios from 'axios'
 import { Text } from '@chakra-ui/react'
 import { Badge } from '@chakra-ui/react'
 
 const servicios = () => {
 
-    const [services, setServices] = useState([{
+    const [services, setServices] = state([{
         id: '',
         name: '',
         price: '',
         description: '',
         category: ''
     }])
-    const router = useRouter()
+
 
     const contentTable = () => {
         return services.map(services => {
@@ -27,7 +27,6 @@ const servicios = () => {
                     <Td>
                         <HStack>
                             <Button colorScheme={"teal"} onClick={() => router.push(`./services/actualizar/${services._id}`)}>Editar</Button>
-                            
                         </HStack>
                     </Td>
                 </Tr>
@@ -35,7 +34,7 @@ const servicios = () => {
         })
     }
 
-    useEffect(() => {
+    efect(() => {
         getServices().then(res => {
             setServices(res.data)
         })

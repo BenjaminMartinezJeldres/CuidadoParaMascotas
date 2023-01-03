@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState as state, useEffect as efect} from 'react'
 import { Button, Container, Heading, HStack, Input, Stack, Table, Thead, Tr, Td, Th, Tbody } from '@chakra-ui/react'
 import { getVecinos } from '../data/vecinos'
-import { useRouter } from 'next/router'
+import router from 'next/router'
 import axios from 'axios'
 
 const neighbour = () => {
 
-    const [vecinos, setVecinos] = useState([{
+    const [vecinos, setVecinos] = state([{
         id: '',
         name: '',
         lastname: '',
@@ -18,7 +18,7 @@ const neighbour = () => {
         category:''
 
     }])
-    const router = useRouter()
+
 
     const contentTable = () => {
         return vecinos.map(vecino => {
@@ -43,7 +43,7 @@ const neighbour = () => {
         })
     }
 
-    useEffect(() => {
+    efect(() => {
         getVecinos().then(res => {
             setVecinos(res.data)
         })

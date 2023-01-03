@@ -1,19 +1,19 @@
-import { useState } from 'react'
+import { useState as state } from 'react'
 import { Button, Container, Heading, HStack, Stack, Text } from '@chakra-ui/react'
 import { createCategory } from '../../data/categories'
 import InputForm from '../../components/InputForm'
 import TextareaInput from '../../components/TextareaInput'
-import { useRouter } from 'next/router'
+import router from 'next/router'
 import { Formik } from 'formik'
 import categoryValidation from '../../validations/categoryValidation'
 import axios from 'axios'
 
 const categorias = () => {
 
-    const [category, setCategory] = useState({
+    const [category, setCategory] = state({
         name: ''
     })
-    const router = useRouter()
+
 
 
     return (

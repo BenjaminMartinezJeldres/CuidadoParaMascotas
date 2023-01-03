@@ -1,21 +1,21 @@
-import { useState } from 'react'
+import { useState as state} from 'react'
 import { Button, Container, Heading, HStack, Stack, Text } from '@chakra-ui/react'
 import { createPet } from '../../data/pets'
 import InputForm from '../../components/InputForm'
 import TextareaInput from '../../components/TextareaInput'
-import { useRouter } from 'next/router'
+import router from 'next/router'
 import { Formik } from 'formik'
 import petValidation from '../../validations/petValidation'
 import axios from 'axios'
 
 const mascotas = () => {
 
-    const [pet, setPet] = useState({
+    const [pet, setPet] = state({
         name: '',
         price: 0,
         description: ''
     })
-    const router = useRouter()
+
 
 
     return (

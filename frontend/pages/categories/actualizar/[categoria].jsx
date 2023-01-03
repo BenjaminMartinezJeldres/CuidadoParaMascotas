@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState as state } from 'react'
 import { getCategory, updateCategory } from '../../../data/categories'
 import { Button, Container, Heading, HStack, Stack } from '@chakra-ui/react'
 import InputForm from '../../../components/InputForm'
 import TextareaInput from '../../../components/TextareaInput'
-import { useRouter } from 'next/router'
+import react from 'next/router'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 
@@ -18,8 +18,8 @@ export const getServerSideProps = async (context) => {
 }
 
 const editar = ({ data }) => {
-    const [category, setCategory] = useState(data)
-    const router = useRouter()
+    const [category, setCategory] = state(data)
+
     const { categoria } = router.query
 
     const handleChange = (e) => {

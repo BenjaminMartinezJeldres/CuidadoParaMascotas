@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState as state, useEffect as efect } from 'react'
 import { Button, Container, Heading, HStack, Input, Stack, Table, Thead, Tr, Td, Th, Tbody } from '@chakra-ui/react'
 import { getCategories } from '../data/categories'
-import { useRouter } from 'next/router'
+import router from 'next/router'
 import axios from 'axios'
 
 const categorias = () => {
 
-    const [categories, setCategories] = useState([{
+    const [categories, setCategories] = state([{
         id: '',
         name: ''
 
     }])
-    const router = useRouter()
+
 
     const contentTable = () => {
         return categories.map(categories => {
@@ -30,7 +30,7 @@ const categorias = () => {
         })
     }
 
-    useEffect(() => {
+    efect(() => {
         getCategories().then(res => {
             setCategories(res.data)
         })

@@ -1,21 +1,20 @@
-import { useState } from 'react'
+import { useState as state} from 'react'
 import { Button, Container, Heading, HStack, Stack, Text } from '@chakra-ui/react'
 import { createVecino } from '../../data/vecinos'
 import InputForm from '../../components/InputForm'
 import TextareaInput from '../../components/TextareaInput'
-import { useRouter } from 'next/router'
+import router from 'next/router'
 import { Formik } from 'formik'
 import vecinoValidation from '../../validations/vecinoValidation'
 import axios from 'axios'
 
 const neighbour = () => {
 
-    const [vecino, setVecino] = useState({
+    const [vecino, setVecino] = state({
         name: '',
         price: 0,
         description: ''
     })
-    const router = useRouter()
 
 
     return (
